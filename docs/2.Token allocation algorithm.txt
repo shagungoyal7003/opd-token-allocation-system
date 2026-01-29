@@ -1,0 +1,31 @@
+Token Allocation Algorithm
+The system uses priority-based dynamic allocation.
+
+1.Priority Order
+Emergency = 4
+Paid Priority = 3
+Follow-up = 2
+Normal = 1
+
+2.Booking logic
+a. Check if slot has free capacity
+b. If space exists → assign token
+c. If slot is full:
+   Find lowest priority patient in slot
+   Compare with new request
+   If new priority is higher → replace
+   Else → add to waiting list
+
+3.Emergency logic
+a. Emergency patients are always assigned
+b. If slot is full:
+   Remove lowest priority patient
+   Insert emergency patient
+   Shift removed patient to waiting list
+
+4.Cancellation logic
+a. Remove cancelled token from slot 
+b. If waiting list is not empty:
+   Automatically assign first waiting patient
+c. Slot capacity is maintained
+
