@@ -1,0 +1,104 @@
+1) Add Doctor
+
+ENDPOINT
+POST /add-doctor
+
+REQUEST BODY
+{
+  "id": 1,
+  "name": "Dr Sharma"
+}
+
+RESPONSE
+{
+  "message": "Doctor Added Successfully"
+}
+
+
+2) Create Slot
+
+Endpoint
+POST /create-slot
+
+REQUEST BODY
+{
+  "slot_id": 101,
+  "doctor_id": 1,
+  "time": "9-10",
+  "capacity": 2
+}
+
+RESPONSE
+{
+  "message": "Slot Created Successfully"
+}
+
+3) Book Token
+
+Endpoint
+POST /book-token
+
+REQUEST BODY
+{
+  "patient": "Rahul",
+  "type": "normal",
+  "slot_id": 101
+}
+
+RESPONSE (success)
+{
+  "message": "Token Confirmed",
+  "token": {
+    "id": 1,
+    "name": "Rahul",
+    "type": "normal"
+  }
+}
+
+RESPONSE (slot full)
+{
+  "message": "Added To Waiting List"
+}
+
+4) Emergency insert
+
+Endpoint
+POST /emergency
+
+REQUEST BODY
+{
+  "patient": "Emergency_Patient",
+  "slot_id": 101
+}
+
+RESPONSE
+{
+  "message": "High Priority Inserted"
+}
+
+
+5) Cancel token
+
+Endpoint
+GET /cancel-token/<token_id>
+
+EXAMPLE
+/cancel-token/1
+
+RESPONSE
+{
+  "message": "Token Cancelled"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

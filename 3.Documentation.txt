@@ -1,0 +1,25 @@
+1.Prioritization Logic
+a. Patients are served based on urgency:
+   Emergency patients get maximum priority.
+   Follow-up and paid priority patients are served before normal walk-in patients.
+
+This ensures critical patients are never delayed.
+
+2.Edge Cases Handled
+a. Slot Full
+   System blocks new normal bookings
+   Adds patient to waiting list
+b. Emergency Insertion  
+   Emergency patients override low priority bookings
+   Slot capacity is preserved
+c. Cancellation Handling
+   Cancelled token automatically triggers reallocation
+   Waiting patient is moved into slot
+d. No-Show Handling
+   No-show is treated same as cancellation
+   Slot is freed and reassigned automatically
+
+3.Failure Handling
+  Invalid token cancellation returns safe error message
+  Slot overflow is prevented
+  Server handles invalid requests gracefully
